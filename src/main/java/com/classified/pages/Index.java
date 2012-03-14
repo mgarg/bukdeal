@@ -17,9 +17,6 @@ public class Index
     @Symbol(SymbolConstants.TAPESTRY_VERSION)
     private String tapestryVersion;
 
-    @InjectComponent
-    private Zone zone;
-
     @Persist
     @Property
     private int clickCount;
@@ -39,12 +36,4 @@ public class Index
         clickCount++;
     }
 
-    Object onActionFromIncrementAjax()
-    {
-        clickCount++;
-
-        alertManager.info("Increment (via Ajax) clicked");
-
-        return zone;
-    }
 }

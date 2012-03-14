@@ -2,6 +2,8 @@
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>Contact com.classified ...</p>
+
+        <t:beaneditform t:id="form" object="user" submitlabel="create new user"/>
+
 
 </html>
