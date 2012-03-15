@@ -23,6 +23,12 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
+        <dependency>
+<artifactId>je</artifactId>
+  <groupId>com.sleepycat</groupId>
+  <version>5.0.34</version>
+</dependency>
+        
         <!-- Uncomment this to add support for file uploads:
 
          <dependency>
@@ -83,6 +89,21 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
     <build>
         <finalName>bukdeal</finalName>
         <plugins>
+<plugin>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <phase>install</phase>
+                                    <goals>
+                                        <goal>copy-dependencies</goal>
+                                    </goals>
+                                    <configuration>
+                                        <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                    </plugin>
+          
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -134,7 +155,14 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
 
         <!-- This repository is only needed when the Tapestry version is a preview release, rather
              than a final release. -->
-        <repository>
+<repository>
+      <id>oracleReleases</id>
+      <name>Oracle Released Java Packages</name>
+      <url>http://download.oracle.com/maven</url>
+      <layout>default</layout>
+    </repository>
+
+    <repository>
             <id>apache-staging</id>
             <url>https://repository.apache.org/content/groups/staging/</url>
         </repository>
