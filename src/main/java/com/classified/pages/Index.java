@@ -1,39 +1,34 @@
 package com.classified.pages;
 
-import java.util.Date;
+import java.util.List;
+
+import com.dal.DbMgr;
+import com.dal.IDbMgr;
+import com.dal.Deal;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.corelib.components.*;
-import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.alerts.AlertManager;
 
-/**
- * Start page of application bukdeal.
- */
 public class Index
 {
-    @Property
-    @Inject
-    @Symbol(SymbolConstants.TAPESTRY_VERSION)
-    private String tapestryVersion;
-
     @Persist
     @Property
-    private int clickCount;
+    private String searchText;
 
     @Inject
     private AlertManager alertManager;
 
-    public Date getCurrentTime()
-    {
-        return new Date();
+
+    @Persist
+    @Property
+    private List<Deal> deals;
+
+    @Persist
+    @Property
+    private Deal deal;
+
+    void onSelectedFromSubmit(){
+        alertManager.info("searching for:" + searchText);
+        deals = DbMgr.getInstance().search(searchText);
     }
-
-    void onActionFromIncrement()
-    {
-        alertManager.info("Increment clicked");
-
-        clickCount++;
-    }
-
 }

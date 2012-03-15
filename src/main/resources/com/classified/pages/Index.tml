@@ -4,25 +4,21 @@
       xmlns:p="tapestry:parameter">
 
 
-    <p>The current time is: ${currentTime}</p>
 
-        <p>
-            You have clicked the link ${clickCount} times.
-        </p>
+    <t:form id="form">
+        <t:textfield t:id="searchText"  validate="required" size="50"/>
+        <t:submit t:id="submit" value="Search"/>
 
-        <p>
+    </t:form>
 
-            <t:actionlink t:id="increment">Click me to increment</t:actionlink>
+    <t:grid source="deals" row="deal">
+        <p:empty>
+          <p>No book found</p>
+        </p:empty>
+    </t:grid>
 
-            &nbsp;
-        </p>
 
     <p:sidebar>
-        <p>
-            You are running Tapestry version <strong>${tapestryVersion}</strong>.
-        </p>
-
-
         <p>
             [
             <t:pagelink page="Index">refresh page</t:pagelink>

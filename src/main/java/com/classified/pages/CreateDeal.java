@@ -1,5 +1,6 @@
 package com.classified.pages;
 
+import com.dal.DbMgr;
 import com.dal.Deal;
 import com.dal.User;
 import org.apache.tapestry5.alerts.AlertManager;
@@ -26,10 +27,9 @@ public class CreateDeal
 
     }
     
-    void onSuccess()
+    void onSubmit()
     {
-//        DbMgr db;
-//        db.adduser(user);
+        DbMgr.getInstance().adddeal(deal);
         alertManager.info("deal added");
     }
 }
