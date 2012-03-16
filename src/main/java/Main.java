@@ -1,20 +1,17 @@
-import com.mysql.jdbc.Driver;
+import com.dal.Deal;
+import com.dal.Sqldb;
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
     public static void main(String args[]) throws SQLException {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
 
-        jdbcTemplate.update(
-                "insert into actor (name, surname) values (?, ?)",
-                "Leonor", "Watling");
+        Sqldb sqldb = new Sqldb(getDataSource());
+        List<Deal> deals = sqldb.search("cormen");
+        for(Deal d:deals)
+            System.out.println(d.getName()+" "+d.getAuthor());
     }
 
     private static MysqlConnectionPoolDataSource getDataSource() {
@@ -23,7 +20,7 @@ public class Main {
         dataSource.setPassword("root");
         dataSource.setServerName("localhost");
         dataSource.setPort(3306);
-        dataSource.setDatabaseName("bukdeal");
+        dataSource.setDatabaseName("bukdb");
         return dataSource;
     }
 }
