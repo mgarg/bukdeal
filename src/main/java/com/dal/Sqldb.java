@@ -52,7 +52,7 @@ public class Sqldb implements IDbMgr{
                     public Deal mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Deal deal = new Deal();
                         deal.setName(rs.getString("name"));
-                       // deal.setAuthor(rs.getString("author"));
+                        deal.setAuthor(rs.getString("author"));
                         return deal;
                     }
                 });

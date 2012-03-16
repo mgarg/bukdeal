@@ -3,7 +3,7 @@ create database bukdb;
 use bukdb;
 
 create table user(
-  id binary(16) primary key,
+  id binary(128) primary key,
   name char(32),
   username char(16),
   password char(16),
@@ -12,8 +12,8 @@ create table user(
 );
 
 create table deal(
-  id binary(16) primary key,
-  userid binary(16),
+  id binary(128) primary key,
+  userid binary(128),
   name char(16),
   author char(16),
   edition char(8),
