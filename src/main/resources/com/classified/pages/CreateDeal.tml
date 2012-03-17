@@ -1,17 +1,18 @@
-<html t:type="layout" title="Contact com.classified"
+<html t:type="layout" title="Create a new deal"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter"  >
 
 
-        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="passwd, username">
+        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="username,passwd">
+            <p:username>
+                 <t:label for="username"/>
+                 <t:textfield t:id="username"/>
+                 </p:username>
             <p:passwd>
                 <t:label for="passwd"/>
                 <t:textfield t:id="passwd"/>
             </p:passwd>
-            <p:username>
-                <t:label for="username"/>
-                <t:textfield t:id="username"/>
-            </p:username>
+
         </t:beaneditform>
 
 
