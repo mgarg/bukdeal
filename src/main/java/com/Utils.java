@@ -2,12 +2,10 @@ package com;
 
 import org.apache.tapestry5.StreamResponse;
 import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.upload.services.UploadedFile;
 import sun.misc.IOUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 
@@ -27,7 +25,7 @@ public class Utils {
     public static StreamResponse bytes2Image(final byte [] bytes) {
         return new StreamResponse() {
             public String getContentType() {
-                return "image/png";
+                return "image/jpg";
             }
 
             public InputStream getStream() throws IOException {
@@ -39,12 +37,20 @@ public class Utils {
             }
         };
     }
+    public static byte[] image2bytes(UploadedFile file) {
+        try {
+            return IOUtils.readFully(file.getStream(), -1, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static byte[] defaultImg() {
         byte[] bytes = null;
         try {
-
-            bytes = IOUtils.readFully(new FileInputStream("/tmp/books.png"), -1, true);
-
+        //    InputStream inputStream = Utils.class.getResourceAsStream("/layout/images/default-book.jpg");
+        InputStream inputStream = new FileInputStream("/tmp/default-book.jpg");
+            bytes = IOUtils.readFully(inputStream, -1, true);
         } catch (IOException e) {
             e.printStackTrace();
         }

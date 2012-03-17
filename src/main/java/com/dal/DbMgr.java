@@ -36,7 +36,7 @@ public class DbMgr {
 
     static IDbMgr dbMgr;
 
-    public static IDbMgr getInstance() throws URISyntaxException {
+    public static IDbMgr getInstance()  {
 
         if(dbMgr == null)
             dbMgr =  new Sqldb(localDataSource());

@@ -3,7 +3,7 @@
       xmlns:p="tapestry:parameter"  >
 
 
-        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="username,passwd">
+        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="username,passwd,imageFile">
             <p:username>
                  <t:label for="username"/>
                  <t:textfield t:id="username"/>
@@ -12,6 +12,12 @@
                 <t:label for="passwd"/>
                 <t:textfield t:id="passwd"/>
             </p:passwd>
+
+            <p:imageFile>
+                <t:label for="file">Choose an image </t:label>
+                <input t:type="upload" t:id="file" t:value="file"/>
+            </p:imageFile>
+
 
         </t:beaneditform>
 

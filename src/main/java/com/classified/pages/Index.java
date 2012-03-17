@@ -37,12 +37,12 @@ public class Index
     @Inject
     private ComponentResources resources;
 
-    public StreamResponse onImage() {
+    public StreamResponse onImage(Object args) {
         return bytes2Image(deal.getImage());
     }
 
     public Link getPicUrl() throws Exception {
-        return resources.createEventLink("image", new Object[]{});
+        return resources.createEventLink("image", new Object[]{deal.getId()});
     }
     
     public String getBookName() {

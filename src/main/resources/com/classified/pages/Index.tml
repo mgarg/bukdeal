@@ -15,7 +15,7 @@
             <t:loop source="deals" value="deal">
 
                 <tr>
-                    <td rowspan="7"> <img src="${picUrl}"/> </td>
+                    <td rowspan="7"> <img src="${picUrl}" height="80" width="80"/> </td>
                 </tr>
                 <tr><td> ${bookName} </td></tr>
                 <tr><td> ${bookAuthor} </td></tr>

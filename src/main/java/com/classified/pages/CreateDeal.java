@@ -8,9 +8,11 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.upload.services.UploadedFile;
 
-import java.net.URISyntaxException;
 import java.util.UUID;
+
+import static com.Utils.image2bytes;
 
 public class CreateDeal
 {
@@ -23,7 +25,12 @@ public class CreateDeal
 
     @Persist
     @Property
-    private String username,passwd;
+    private String username, passwd;
+
+
+    @Persist
+    @Property
+    private UploadedFile file;
 
     @Component
     private BeanEditForm form;
@@ -31,11 +38,11 @@ public class CreateDeal
     void onValidate() {
 
     }
-    
-    void onSubmit() throws URISyntaxException {
+
+    void onSubmit() {
         deal.setId(UUID.randomUUID());
         deal.setUserid(DbMgr.getInstance().validate(username, passwd));
-        //alertManager.info(passwd);
+        deal.setImage(image2bytes(file));
         DbMgr.getInstance().adddeal(deal);
         alertManager.info("deal added");
         deal = null;

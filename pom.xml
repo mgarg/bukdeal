@@ -30,7 +30,7 @@
             </dependency>
 
         
-        <!-- Uncomment this to add support for file uploads:
+
 
          <dependency>
             <groupId>org.apache.tapestry</groupId>
@@ -38,7 +38,7 @@
             <version>${tapestry-release-version}</version>
         </dependency>
 
-        -->
+
 
         <!-- A dependency on either JUnit or TestNG is required, or the surefire plugin (which runs the tests)
 will fail, preventing Maven from packaging the WAR. Tapestry includes a large number
