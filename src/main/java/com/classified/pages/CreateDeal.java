@@ -20,6 +20,9 @@ public class CreateDeal
     @Inject
     private AlertManager alertManager;
 
+    @Persist
+    @Property
+    private String passwd;
 
     @Component
     private BeanEditForm form;
@@ -31,6 +34,7 @@ public class CreateDeal
     void onSubmit()
     {
         deal.setId(UUID.randomUUID());
+        alertManager.info(passwd);
         DbMgr.getInstance().adddeal(deal);
         alertManager.info("deal added");
     }

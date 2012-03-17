@@ -18,7 +18,7 @@ public class DbMgr {
     static IDbMgr dbMgr = new Sqldb(dataSource);
 
     public static IDbMgr getInstance(){
-        UUID
+
         return dbMgr;
     }
 }

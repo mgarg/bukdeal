@@ -11,16 +11,19 @@ create table user(
   email varchar(512) 
 );
 
-create table deal(
-  id binary(128) primary key,
-  userid binary(128),
-  name char(16),
-  author char(16),
-  edition char(8),
-  publisher varchar(512),
-  status varchar(512),
-  price decimal(6,2) 
-);
+
+CREATE TABLE `deal` (
+  `id` binary(16) NOT NULL,
+  `userid` binary(16) DEFAULT NULL,
+  `name` varchar(4000) DEFAULT NULL,
+  `author` varchar(4000) DEFAULT NULL,
+  `edition` varchar(4000) DEFAULT NULL,
+  `publisher` varchar(512) DEFAULT NULL,
+  `status` varchar(512) DEFAULT NULL,
+  `price` decimal(6,2) DEFAULT 0.0,
+  PRIMARY KEY (`id`),
+  FULLTEXT KEY `name` (`name`,`author`,`publisher`)
+) ENGINE=MyISAM;
 
 INSERT INTO deal(id,name,author) VALUES('1','operating Systems','galvin');
 INSERT INTO deal(id,name,author) VALUES('2','software engineering','pressman');

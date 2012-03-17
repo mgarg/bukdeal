@@ -1,6 +1,7 @@
 package com.dal;
 
 
+import com.Utils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -8,6 +9,8 @@ import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
+import static com.Utils.uuid2Bytes;
 
 public class Sqldb implements IDbMgr{
     DataSource d;
@@ -30,7 +33,7 @@ public class Sqldb implements IDbMgr{
     public void adddeal(Deal deal) {
         jdbcTemplate().update(
                 "INSERT INTO deal (id,name,author,edition,publisher,status,price) values (?,?,?,?,?,?,?)",
-                deal.getId(), deal.getName(),deal.getAuthor(),deal.getEdition(),deal.getPublisher(),deal.getStatus(),deal.getPrice());
+                uuid2Bytes(deal.getId()), deal.getName(),deal.getAuthor(),deal.getEdition(),deal.getPublisher(),deal.getStatus(),deal.getPrice());
     }
 
     public void deldeal(Deal deal) {
