@@ -11,14 +11,25 @@
 
     </t:form>
 
-    <t:grid source="deals" row="deal" add="imagePic" include="name,author" reorder="imagePic,name,author">
-        <p:imagePicCell>
-            <img src="${picUrl}"/>
-        </p:imagePicCell>
-        <p:empty>
-          <p>No book found</p>
-        </p:empty>
-    </t:grid>
+        <table>
+            <t:loop source="deals" value="deal">
+
+                <tr>
+                    <td rowspan="7"> <img src="${picUrl}"/> </td>
+                </tr>
+                <tr><td> ${bookName} </td></tr>
+                <tr><td> ${bookAuthor} </td></tr>
+                <tr><td> ${bookEdition} </td></tr>
+                <tr><td> ${bookPublisher} </td></tr>
+                <tr><td> ${bookStatus} </td></tr>
+                <tr><td> ${bookPrice} </td></tr>
+
+                <p:empty>
+                  <p>No book found</p>
+                </p:empty>
+            </t:loop>
+        </table>
+
 
 
     <p:sidebar>

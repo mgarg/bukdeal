@@ -44,7 +44,30 @@ public class Index
     public Link getPicUrl() throws Exception {
         return resources.createEventLink("image", new Object[]{});
     }
+    
+    public String getBookName() {
+        return deal.getName();
+    }
+    
+    public String getBookAuthor() {
+        return deal.getAuthor();
+    }
 
+    public String getBookEdition() {
+        return deal.getEdition();
+    }
+
+    public String getBookPublisher() {
+        return deal.getPublisher();
+    }
+
+    public float getBookprice() {
+        return deal.getPrice();
+    }
+
+    public String getBookStatus() {
+        return deal.getStatus();
+    }
     void onSelectedFromSubmit() throws URISyntaxException {
         alertManager.info("searching for:" + searchText);
         deals = DbMgr.getInstance().search(searchText);

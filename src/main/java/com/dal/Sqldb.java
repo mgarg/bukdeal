@@ -4,19 +4,15 @@ package com.dal;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import sun.misc.IOUtils;
 
 import javax.sql.DataSource;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.Utils.bytes2Uuid;
-import static com.Utils.uuid2Bytes;
+import static com.Utils.*;
 
 public class Sqldb implements IDbMgr{
     DataSource d;
@@ -50,8 +46,8 @@ public class Sqldb implements IDbMgr{
 
     public void adddeal(Deal deal) {
         jdbcTemplate().update(
-                "INSERT INTO deal (id,userid,name,author,edition,publisher,status,price) values (?,?,?,?,?,?,?,?)",
-                uuid2Bytes(deal.getId()),uuid2Bytes(deal.getUserid()),deal.getName(),deal.getAuthor(),deal.getEdition(),deal.getPublisher(),deal.getStatus(),deal.getPrice());
+                "INSERT INTO deal (id,userid,name,author,edition,publisher,status,price,image) values (?,?,?,?,?,?,?,?,?)",
+                uuid2Bytes(deal.getId()),uuid2Bytes(deal.getUserid()),deal.getName(),deal.getAuthor(),deal.getEdition(),deal.getPublisher(),deal.getStatus(),deal.getPrice(),deal.getImage());
     }
 
     public void deldeal(Deal deal) {
@@ -72,13 +68,9 @@ public class Sqldb implements IDbMgr{
                         Deal deal = new Deal();
                         deal.setName(rs.getString("name"));
                         deal.setAuthor(rs.getString("author"));
-                        try {
-
-                            byte [] bytes = IOUtils.readFully(new FileInputStream("/tmp/books.png"), -1, true);
-                            deal.setImage(bytes);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                        deal.setImage(rs.getBytes("image"));
+                        if(deal.getImage() == null)
+                            deal.setImage(defaultImg());
                         return deal;
                     }
                 });

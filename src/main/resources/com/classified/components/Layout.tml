@@ -22,7 +22,7 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
         <div class="header">
             <div class="logo">
                 <h1>
-                    <t:pagelink page="index">com.classified:bukdeal</t:pagelink>
+                    <t:pagelink page="index">BUKDEAL</t:pagelink>
                     &nbsp;
                     version ${appVersion}
                 </h1>

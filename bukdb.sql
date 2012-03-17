@@ -21,6 +21,7 @@ CREATE TABLE `deal` (
   `publisher` varchar(512) DEFAULT NULL,
   `status` varchar(512) DEFAULT NULL,
   `price` decimal(6,2) DEFAULT 0.0,
+  `image` varbinary(10000000) DEFAULT NULL, 
   PRIMARY KEY (`id`),
   FULLTEXT KEY `name` (`name`,`author`,`publisher`)
 ) ENGINE=MyISAM;

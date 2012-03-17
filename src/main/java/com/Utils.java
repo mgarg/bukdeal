@@ -2,8 +2,10 @@ package com;
 
 import org.apache.tapestry5.StreamResponse;
 import org.apache.tapestry5.services.Response;
+import sun.misc.IOUtils;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -36,5 +38,16 @@ public class Utils {
                 // add response headers if you need to here
             }
         };
+    }
+    public static byte[] defaultImg() {
+        byte[] bytes = null;
+        try {
+
+            bytes = IOUtils.readFully(new FileInputStream("/tmp/books.png"), -1, true);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bytes;
     }
 }
