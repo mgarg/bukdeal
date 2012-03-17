@@ -9,6 +9,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import java.net.URISyntaxException;
 import java.util.UUID;
 
 public class CreateUser
@@ -28,8 +29,7 @@ public class CreateUser
 
     }
     
-    void onSuccess()
-    {
+    void onSuccess() throws URISyntaxException {
 //        IDbMgr db;
 //        db.adduser(user);
         

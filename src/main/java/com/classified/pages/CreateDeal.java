@@ -9,6 +9,7 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.BeanEditForm;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import java.net.URISyntaxException;
 import java.util.UUID;
 
 public class CreateDeal
@@ -31,8 +32,7 @@ public class CreateDeal
 
     }
     
-    void onSubmit()
-    {
+    void onSubmit() throws URISyntaxException {
         deal.setId(UUID.randomUUID());
         deal.setUserid(DbMgr.getInstance().validate(username, passwd));
         //alertManager.info(passwd);

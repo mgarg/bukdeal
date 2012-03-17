@@ -19,7 +19,17 @@ public class Sqldb implements IDbMgr{
     DataSource d;
    public Sqldb(DataSource d)
     {
-        this.d = d;    
+        this.d = d;
+        
+    }
+    
+    void InitTables()
+    {
+        JdbcTemplate db = jdbcTemplate();
+        
+        db.update(
+                "ALTER TABLE user ADD varchar(4000) name "
+        );
     }
     JdbcTemplate jdbcTemplate(){
         return new JdbcTemplate(this.d);
@@ -48,10 +58,8 @@ public class Sqldb implements IDbMgr{
     public void updatedeal(Deal deal) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-    //SELECT name,author,publisher FROM deal WHERE MATCH(name,author,publisher) AGAINST ('cormen');
-    //name = '%s'"
+
     public List<Deal> search(String str) {
-       // String q = String.format("SELECT * FROM deal WHERE MATCH(name,author,publisher) AGAINST ('%s')" , str);
         List<Deal> deals = this.jdbcTemplate().query(
                 "SELECT * FROM deal WHERE MATCH(name,author,publisher) AGAINST (?)",
                 //"SELECT * FROM deal WHERE name = ?",

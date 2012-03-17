@@ -91,6 +91,13 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
                 <version>2.4.6</version>
             </dependency>
 
+            <dependency>
+                <groupId>commons-dbcp</groupId>
+                <artifactId>commons-dbcp</artifactId>
+                <version>1.2.2</version>
+            </dependency>
+
+
         </dependencies>
     <build>
         <finalName>bukdeal</finalName>

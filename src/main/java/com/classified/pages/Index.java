@@ -1,13 +1,14 @@
 package com.classified.pages;
 
-import java.util.List;
-
 import com.dal.DbMgr;
-import com.dal.IDbMgr;
 import com.dal.Deal;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
+
+import java.net.URISyntaxException;
+import java.util.List;
 
 public class Index
 {
@@ -27,7 +28,7 @@ public class Index
     @Property
     private Deal deal;
 
-    void onSelectedFromSubmit(){
+    void onSelectedFromSubmit() throws URISyntaxException {
         alertManager.info("searching for:" + searchText);
         deals = DbMgr.getInstance().search(searchText);
     }
