@@ -4,8 +4,11 @@ package com.dal;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import sun.misc.IOUtils;
 
 import javax.sql.DataSource;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -69,6 +72,13 @@ public class Sqldb implements IDbMgr{
                         Deal deal = new Deal();
                         deal.setName(rs.getString("name"));
                         deal.setAuthor(rs.getString("author"));
+                        try {
+
+                            byte [] bytes = IOUtils.readFully(new FileInputStream("/tmp/books.png"), -1, true);
+                            deal.setImage(bytes);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         return deal;
                     }
                 });

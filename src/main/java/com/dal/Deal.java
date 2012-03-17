@@ -1,6 +1,5 @@
 package com.dal;
 
-import java.util.Currency;
 import java.util.UUID;
 
 public class Deal {
@@ -11,6 +10,16 @@ public class Deal {
            publisher,
             status;
     private float price;
+
+    private byte [] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     public UUID getId() {
         return id;

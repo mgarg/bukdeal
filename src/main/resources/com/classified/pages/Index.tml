@@ -11,7 +11,10 @@
 
     </t:form>
 
-    <t:grid source="deals" row="deal">
+    <t:grid source="deals" row="deal" add="imagePic" include="name,author" reorder="imagePic,name,author">
+        <p:imagePicCell>
+            <img src="${picUrl}"/>
+        </p:imagePicCell>
         <p:empty>
           <p>No book found</p>
         </p:empty>
