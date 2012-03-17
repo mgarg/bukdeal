@@ -2,6 +2,7 @@ package com.dal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class MockDb implements IDbMgr {
 
@@ -46,5 +47,9 @@ public class MockDb implements IDbMgr {
                 result.add(d);
         }
         return result;
+    }
+
+    public UUID validate(String username, String passwd) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

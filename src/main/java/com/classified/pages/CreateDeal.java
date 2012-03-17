@@ -22,7 +22,7 @@ public class CreateDeal
 
     @Persist
     @Property
-    private String passwd;
+    private String username,passwd;
 
     @Component
     private BeanEditForm form;
@@ -34,8 +34,10 @@ public class CreateDeal
     void onSubmit()
     {
         deal.setId(UUID.randomUUID());
-        alertManager.info(passwd);
+        deal.setUserid(DbMgr.getInstance().validate(username, passwd));
+        //alertManager.info(passwd);
         DbMgr.getInstance().adddeal(deal);
         alertManager.info("deal added");
+        deal = null;
     }
 }

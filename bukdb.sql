@@ -3,7 +3,7 @@ create database bukdb;
 use bukdb;
 
 create table user(
-  id binary(128) primary key,
+  id binary(16) primary key,
   name char(32),
   username char(16),
   password char(16),
@@ -31,4 +31,5 @@ INSERT INTO deal(id,name,author) VALUES('3',"programming paradigms","pratt");
 INSERT INTO deal(id,name,author) VALUES('4',"Algorithms","cormen");
 INSERT INTO deal(id,name,author) VALUES('5',"differential equation","kreyzig");
 
+INSERT INTO user(id,username,password) VALUES(1,"mgarg","test1");
 

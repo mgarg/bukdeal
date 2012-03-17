@@ -10,4 +10,9 @@ public class Utils {
         buffer.putLong(uuid.getLeastSignificantBits());
         return buffer.array();
     }
+    
+    public static UUID bytes2Uuid(byte [] bytes) {
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        return new UUID(buffer.getLong(), buffer.getLong());
+    }
 }

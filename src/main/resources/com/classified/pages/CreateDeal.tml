@@ -3,11 +3,15 @@
       xmlns:p="tapestry:parameter"  >
 
 
-        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="passwd">
+        <t:beaneditform t:id="form" object="deal" submitlabel="create new deal" add="passwd, username">
             <p:passwd>
                 <t:label for="passwd"/>
                 <t:textfield t:id="passwd"/>
             </p:passwd>
+            <p:username>
+                <t:label for="username"/>
+                <t:textfield t:id="username"/>
+            </p:username>
         </t:beaneditform>
 
 
