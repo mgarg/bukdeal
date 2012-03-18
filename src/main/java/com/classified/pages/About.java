@@ -7,34 +7,32 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import java.net.URISyntaxException;
-
 public class About
 {
     @Persist
     @Property
-    private String username;
-
-    @Persist
-    @Property
-    private String password;
-
-    @Persist
-    @Property
-    private User user;
+    private String username, password, mobile, email;
 
     @Inject
     private AlertManager alertManager;
 
-    public String getUserMobile() {
-        return user.getMobile();
-    }
-    public String getUserEmail() {
-        return user.getEmail();
-    }
-    void onSelectedFromSubmit()throws URISyntaxException {
-        alertManager.info("profile of:" + username);
+    @Persist
+    @Property
+    private boolean disableMobile, disableEmail;
+
+
+    void onSelectedFromUserSubmit() {
+        
+        disableEmail = !disableEmail;
+        disableMobile = !disableMobile;
+        alertManager.info("disable = " + disableEmail);
        // DbMgr.getInstance().validate(username,password);
-        user = DbMgr.getInstance().displayProfile(username, password);
+        User user = DbMgr.getInstance().displayProfile(username, password);
+        if(user==null)
+            alertManager.error("bad username or passwd");
+        else {
+            mobile = user.getMobile();
+            email = user.getEmail();
+        }
     }
 }

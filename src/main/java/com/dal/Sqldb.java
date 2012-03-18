@@ -94,7 +94,7 @@ public class Sqldb implements IDbMgr{
         
         try{
             Map<String, Object> res = jdbcTemplate().queryForMap("SELECT id,mobile,email FROM user WHERE username =(?) AND password =(?)", username, passwd);
-            user.setId((UUID) res.get("id"));
+            user.setId(bytes2Uuid((byte[])res.get("id")));
             user.setMobile((String) res.get("mobile"));
             user.setEmail((String) res.get("email"));
 
