@@ -52,4 +52,10 @@ public class MockDb implements IDbMgr {
     public UUID validate(String username, String passwd) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    public User displayProfile(String username, String passwd) {
+        return null;//To change body of implemented methods use File | Settings | File Templates.
+    }
+
+
 }

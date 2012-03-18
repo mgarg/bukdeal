@@ -1,7 +1,27 @@
-<html t:type="layout" title="About bukdeal"
+<html t:type="layout" title="my profile"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 
-    <p>About bukdeal application ...</p>
+
+
+    <t:form id="form">
+        username <t:textfield t:id="username"  validate="required" size="30"/><br>
+
+        </br>
+        password <t:textfield t:id="password"  validate="required" size="30"/><br>
+
+        </br><br/><br/>
+        <t:submit t:id="submit" value="view my profile"/>
+
+    </t:form>
+    <table>
+            <tr><td> ${userMobile} </td></tr>
+            <tr><td> ${userEmail} </td></tr>
+
+
+    </table>
+    <p:empty>
+        <p>No user found</p>
+    </p:empty>
 
 </html>

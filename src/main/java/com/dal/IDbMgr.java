@@ -12,6 +12,7 @@ public interface IDbMgr {
     void updatedeal(Deal deal);
     List<Deal> search(String str);
     UUID validate(String username, String passwd);
+    User displayProfile(String username,String passwd);
 
 }
 

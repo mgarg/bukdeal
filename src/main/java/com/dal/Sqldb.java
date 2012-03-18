@@ -87,4 +87,21 @@ public class Sqldb implements IDbMgr{
             return null;
         }
     }
+    public User displayProfile(String username,String passwd){
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwd);
+        
+        try{
+            Map<String, Object> res = jdbcTemplate().queryForMap("SELECT id,mobile,email FROM user WHERE username =(?) AND password =(?)", username, passwd);
+            user.setId((UUID) res.get("id"));
+            user.setMobile((String) res.get("mobile"));
+            user.setEmail((String) res.get("email"));
+
+            return user;
+        }
+        catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
 }
