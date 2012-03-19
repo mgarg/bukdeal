@@ -48,6 +48,6 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "about", "CreateUser", "CreateDeal"};
+        return new String[]{"Index", "Profile", "CreateUser", "CreateDeal"};
     }
 }

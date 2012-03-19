@@ -7,7 +7,7 @@ import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-public class About
+public class Profile
 {
     @Persist
     @Property
