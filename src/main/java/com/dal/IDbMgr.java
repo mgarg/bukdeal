@@ -13,6 +13,7 @@ public interface IDbMgr {
     List<Deal> search(String str);
     UUID validate(String username, String passwd);
     User displayProfile(String username,String passwd);
+    boolean passwordConfirmed(String password1,String password2);
 
 }
 

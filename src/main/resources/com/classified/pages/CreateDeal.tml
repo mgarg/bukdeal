@@ -10,7 +10,7 @@
                  </p:username>
             <p:passwd>
                 <t:label for="passwd"/>
-                <t:textfield t:id="passwd"/>
+                <t:passwordfield t:id="passwd"/>
             </p:passwd>
 
             <p:imageFile>

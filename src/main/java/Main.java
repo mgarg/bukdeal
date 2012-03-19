@@ -1,9 +1,7 @@
 import com.dal.Sqldb;
-import com.dal.User;
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
 
 import java.sql.SQLException;
-import java.util.UUID;
 
 public class Main {
     public static void main(String args[]) throws SQLException {
@@ -18,13 +16,14 @@ public class Main {
 //        d.setAuthor("mano");
 //        d.setId(UUID.randomUUID());
 //        sqldb.adddeal(d);
-        User user = new User();
-        user.setId(UUID.randomUUID());
-        user.setUsername("agarg");
-        user.setPassword("test2");
-        sqldb.adduser(user);
-        System.out.println(sqldb.validate("agarg", "test2"));
-        System.out.println(user.getId());
+//        User user = new User();
+//        user.setId(UUID.randomUUID());
+//        user.setUsername("agarg");
+//        user.setPassword("test2");
+//        sqldb.adduser(user);
+//        System.out.println(sqldb.validate("agarg", "test2"));
+//        System.out.println(user.getId());
+        //sqldb.passwordConfirmed("test","test");
     }
 
     private static MysqlConnectionPoolDataSource getDataSource() {

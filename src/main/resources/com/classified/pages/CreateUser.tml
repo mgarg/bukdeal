@@ -3,7 +3,21 @@
       xmlns:p="tapestry:parameter">
 
 
-        <t:beaneditform t:id="form" object="user" submitlabel="create new user"/>
+
+    <t:form id="form">
+        <table>
+            <tr><td>name:</td><td> <t:textfield t:id="name"  validate="required" size="30"/></td></tr><br/>
+            <tr><td>username:</td><td> <t:textfield t:id="username"  validate="required" size="30"/></td></tr><br/>
+
+            <tr><td>password:</td><td> <t:passwordfield t:id="password"  validate="required" size="30"/></td></tr><br/>
+            <tr><td>confirm password:</td><td> <t:passwordfield t:id="confirmPassword"  validate="required" size="30"/></td></tr><br/>
+            <tr><td>mobile:</td><td><t:textfield t:id="mobile"  size="30"/></td></tr><br/>
+            <tr><td>email:</td><td><t:textfield t:id="email"  size="30"/></td></tr><br/>
+        </table>
+
+        <t:submit t:id="submit" value="create new user"/>
+
+    </t:form>
 
 
 </html>

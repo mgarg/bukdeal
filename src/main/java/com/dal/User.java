@@ -7,13 +7,27 @@ public class User {
             password,
             mobile,
             email;
+
+    public User() {
+    }
+
     private UUID id;
 
     public String getName() {
         return name;
     }
 
+    public User(String name, String username, String password, String mobile, String email, UUID id) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.mobile = mobile;
+        this.email = email;
+        this.id = id;
+    }
+
     public void setName(String name) {
+
         this.name = name;
     }
 

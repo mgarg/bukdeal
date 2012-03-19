@@ -104,4 +104,9 @@ public class Sqldb implements IDbMgr{
             return null;
         }
     }
+
+    public boolean passwordConfirmed(String password1, String password2) {
+       // System.out.println(password1.equals(password2));
+        return password1.equals(password2);  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }

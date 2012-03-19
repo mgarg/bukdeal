@@ -57,5 +57,9 @@ public class MockDb implements IDbMgr {
         return null;//To change body of implemented methods use File | Settings | File Templates.
     }
 
+    public boolean passwordConfirmed(String password1, String password2) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
 
 }
