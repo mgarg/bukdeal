@@ -12,6 +12,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.UUID;
 
 import static com.Utils.bytes2Image;
 
@@ -37,12 +38,13 @@ public class index
     @Inject
     private ComponentResources resources;
 
-    public StreamResponse onImage(Object args) {
-        return bytes2Image(deal.getImage());
+    public StreamResponse onImage(String id) {
+        
+        return bytes2Image(DbMgr.getInstance().findBookImage(UUID.fromString(id)));
     }
 
     public Link getPicUrl() throws Exception {
-        return resources.createEventLink("image", new Object[]{deal.getId()});
+        return resources.createEventLink("image", deal.getId());
     }
     
     public String getBookName() {

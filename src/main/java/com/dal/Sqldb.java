@@ -66,11 +66,9 @@ public class Sqldb implements IDbMgr{
                 new RowMapper<Deal>() {
                     public Deal mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Deal deal = new Deal();
+                        deal.setId(bytes2Uuid(rs.getBytes("id")));
                         deal.setName(rs.getString("name"));
                         deal.setAuthor(rs.getString("author"));
-                        deal.setImage(rs.getBytes("image"));
-                        if(deal.getImage() == null)
-                            deal.setImage(defaultImg());
                         return deal;
                     }
                 });
@@ -87,6 +85,12 @@ public class Sqldb implements IDbMgr{
             return null;
         }
     }
+
+    public byte[] findBookImage(UUID id) {
+        byte [] image = (byte[])jdbcTemplate().queryForMap("SELECT image FROM deal WHERE id=(?)", uuid2Bytes(id)).get("image");
+        return image==null ? defaultImg() : image;
+    }
+
     public User displayProfile(String username,String passwd){
         User user = new User();
         user.setUsername(username);

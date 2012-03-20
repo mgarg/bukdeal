@@ -49,7 +49,7 @@ public class Utils {
         byte[] bytes = null;
         try {
         //    InputStream inputStream = Utils.class.getResourceAsStream("/layout/images/default-book.jpg");
-        InputStream inputStream = new FileInputStream("/tmp/default-book.jpg");
+        InputStream inputStream = new FileInputStream("f:/tmp/default-book.jpg");
             bytes = IOUtils.readFully(inputStream, -1, true);
         } catch (IOException e) {
             e.printStackTrace();

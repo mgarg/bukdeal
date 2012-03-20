@@ -15,5 +15,6 @@ public interface IDbMgr {
     User displayProfile(String username,String passwd);
     boolean passwordConfirmed(String password1,String password2);
 
+    byte[] findBookImage(UUID id);
 }
 
