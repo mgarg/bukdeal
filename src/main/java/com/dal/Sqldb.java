@@ -41,12 +41,7 @@ public class Sqldb implements IDbMgr{
     }
 
     public void updateuser(User user,String mobile,String email) {
-        jdbcTemplate().update(
-         "UPDATE user SET mobile = (?),email = (?) WHERE mobile = (?),email = (?)",mobile,email, user.getMobile(),user.getEmail()
-        );
-//        jdbcTemplate().update(
-//                "UPDATE user SET email = (?) WHERE email = (?)",email, user.getEmail()
-//        );
+        jdbcTemplate().update("UPDATE user SET mobile = (?), email = (?) WHERE id= (?)", mobile, email, uuid2Bytes(user.getId()));
     }
 
     public void adddeal(Deal deal) {

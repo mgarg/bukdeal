@@ -13,34 +13,38 @@ public class Profile
     @Property
     private String username, password, mobile, email;
 
+    @Persist @Property private User user;
+
     @Inject
     private AlertManager alertManager;
 
     @Persist
     @Property
-    private boolean disableMobile, disableEmail;
-
+    private boolean enableMobile, enableEmail;
 
     void onSelectedFromUserSubmit() {
-        
-        disableEmail = !disableEmail;
-        disableMobile = !disableMobile;
-       // alertManager.info("disable = " + disableEmail);
-       // DbMgr.getInstance().validate(username,password);
-        User user = DbMgr.getInstance().displayProfile(username, password);
-        if(user==null)
-            alertManager.error("incorrect username or password");
-        else {
-            mobile = user.getMobile();
-            email = user.getEmail();
 
-            alertManager.info("user may now update his mobile/email ");
-            DbMgr.getInstance().updateuser(user, mobile, email);
+        if(!enableEmail) {
 
+            user = DbMgr.getInstance().displayProfile(username, password);
+            if(user==null)
+                alertManager.error("incorrect username or password");
+            else {
+                mobile = user.getMobile();
+                email = user.getEmail();
+                enableEmail = true;
+                enableMobile = true;
+                alertManager.info("user may now update his mobile/email ");
+            }
         }
-//        username = null;
-//        password = null;
-//        email = null;
-//        mobile = null;
+        else {
+            DbMgr.getInstance().updateuser(user, mobile, email);
+            enableEmail = false;
+            enableMobile = false;
+            username = null;
+            password = null;
+            email = null;
+            mobile = null;
+        }
     }
 }
