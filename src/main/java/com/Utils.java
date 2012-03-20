@@ -56,4 +56,5 @@ public class Utils {
         }
         return bytes;
     }
+    //public static void makeNull()
 }

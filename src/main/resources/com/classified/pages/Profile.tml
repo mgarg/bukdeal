@@ -7,12 +7,12 @@
     <t:form id="form">
         <table>
         <tr><td>username:</td><td> <t:textfield t:id="username"  validate="required" size="30"/></td></tr><br/>
-        <tr><td>password:</td><td> <t:passwordfield t:id="password"  validate="required" size="30"/></td></tr><br/>
+        <tr><td>password:</td><td> <t:passwordfield t:id="password"  validate="required" size="30"/></td><td>press 'enter' after entering your password</td></tr><br/>
         <tr><td>mobile:</td><td><t:textfield t:id="mobile"  size="30" disabled="${!disableMobile}"/></td></tr><br/>
-        <tr><td>email:</td><td><t:textfield t:id="email"  size="30" disabled="${!disableEmail}" /></td></tr><br/>
+        <tr><td>email:</td><td><t:textfield t:id="email"  size="30"   disabled="${!disableEmail}"/></td></tr><br/>
         </table>
 
-        <t:submit t:id="userSubmit" value="view my profile"/>
+        <t:submit t:id="userSubmit" value="done"/>
 
     </t:form>
 

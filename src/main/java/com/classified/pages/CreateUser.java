@@ -48,7 +48,13 @@ public class CreateUser
         else{
             DbMgr.getInstance().adduser(user);
             alertManager.info("user added");
-
+            name = null;
+            username = null;
+            password = null;
+            mobile = null;
+            email = null;
+            confirmPassword = null;
         }
+
     }
 }

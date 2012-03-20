@@ -18,6 +18,10 @@ public class MockDb implements IDbMgr {
 
     }
 
+    public void updateuser(User user, String mobile, String email) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
     public void updateuser(User user) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
@@ -28,6 +32,10 @@ public class MockDb implements IDbMgr {
     }
 
     public void deldeal(Deal deal) {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public void updatedeal(Deal deal, String mobile, String password) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 

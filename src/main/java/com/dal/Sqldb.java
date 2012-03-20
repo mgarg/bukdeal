@@ -40,8 +40,13 @@ public class Sqldb implements IDbMgr{
                 uuid2Bytes(user.getId()),user.getName(),user.getUsername(),user.getPassword(),user.getMobile(),user.getEmail());
     }
 
-    public void updateuser(User user) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void updateuser(User user,String mobile,String email) {
+        jdbcTemplate().update(
+         "UPDATE user SET mobile = (?),email = (?) WHERE mobile = (?),email = (?)",mobile,email, user.getMobile(),user.getEmail()
+        );
+//        jdbcTemplate().update(
+//                "UPDATE user SET email = (?) WHERE email = (?)",email, user.getEmail()
+//        );
     }
 
     public void adddeal(Deal deal) {

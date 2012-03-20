@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface IDbMgr {
     void adduser(User user);
-    void updateuser(User user);
+    void updateuser(User user,String mobile,String email);
     void adddeal(Deal deal);
     void deldeal(Deal deal);
     void updatedeal(Deal deal);

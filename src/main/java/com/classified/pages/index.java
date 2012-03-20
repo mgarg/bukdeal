@@ -15,7 +15,7 @@ import java.util.List;
 
 import static com.Utils.bytes2Image;
 
-public class Index
+public class index
 {
     @Persist
     @Property

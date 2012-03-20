@@ -25,14 +25,22 @@ public class Profile
         
         disableEmail = !disableEmail;
         disableMobile = !disableMobile;
-        alertManager.info("disable = " + disableEmail);
+       // alertManager.info("disable = " + disableEmail);
        // DbMgr.getInstance().validate(username,password);
         User user = DbMgr.getInstance().displayProfile(username, password);
         if(user==null)
-            alertManager.error("bad username or passwd");
+            alertManager.error("incorrect username or password");
         else {
             mobile = user.getMobile();
             email = user.getEmail();
+
+            alertManager.info("user may now update his mobile/email ");
+            DbMgr.getInstance().updateuser(user, mobile, email);
+
         }
+//        username = null;
+//        password = null;
+//        email = null;
+//        mobile = null;
     }
 }
